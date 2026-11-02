@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Continuum — переносимые пакеты файлов с цифровой подписью и воспроизводимыми проверками. Создание и проверка в браузере.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'none'; frame-src 'none'">
+<meta name="theme-color" content="#12241f"><title>Continuum — капсулы преемственности</title>
+<link rel="icon" href="./icon.svg" type="image/svg+xml"><link rel="stylesheet" href="./style.css">
+<script type="module" src="./app.js"></script>
+</head>
+<body>
+<aside class="sidebar">
+<a class="brand" href="#home" aria-label="Continuum, главная"><span class="brand-mark">c<span>•</span></span><span>continuum<small>Капсулы преемственности</small></span></a>
+<div class="workspace"><span class="workspace-icon">Л</span><div>Личное пространство<small>Работа в вашем браузере</small></div><span class="online-dot"></span></div>
+<div class="nav-label">ПРОСТРАНСТВО</div>
+<nav aria-label="Основная навигация">
+<a href="#home" data-route="home" class="nav-item"><span>◈</span> Обзор</a>
+<a href="#create" data-route="create" class="nav-item"><span>⊕</span> Создать капсулу</a>
+<a href="#verify" data-route="verify" class="nav-item"><span>✓</span> Проверить капсулу</a>
+<a href="#vault" data-route="vault" class="nav-item"><span>▦</span> Локальное хранилище <b id="vault-count">0</b></a>
+</nav>
+<div class="nav-label second">ПОДРОБНЕЕ</div>
+<a href="#guide" data-route="guide" class="nav-item"><span>↗</span> Как это работает</a>
+<div class="sidebar-bottom"><span class="small-pill">БЕЗ ЗАГРУЗКИ НА СЕРВЕР</span><p>Ваши файлы обрабатываются на этом устройстве.</p><div class="version">CONTINUUM <span>V1.0</span></div></div>
+</aside>
+<main>
+<header class="topbar"><div><span class="breadcrumb">Пространство</span><span class="slash">/</span><span id="page-label">Обзор</span></div><a href="#guide" class="privacy-link"><span class="online-dot"></span> Обработка локально</a></header>
+<div id="app" class="page"></div>
+<footer><span>Создавайте то, что можно передать дальше.</span><a href="./offline-verifier.html" download>Автономный проверяющий ↗</a></footer>
+</main>
+<div id="toast" role="status" aria-live="polite" hidden></div>
+</body></html>
