@@ -1,0 +1,4 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';import {encryptCapsule,decryptCapsule} from '../dist/crypto.js';
+test('encrypted capsule round-trip and random salt',async()=>{const c={example:'Привет',data:[1,2,3]},p='a-private-password';const a=await encryptCapsule(c,p),b=await encryptCapsule(c,p);assert.notEqual(a.ciphertext,b.ciphertext);assert.deepEqual(JSON.parse(await decryptCapsule(a,p)),c)});
+test('reject wrong password, tampering and unsafe KDF',async()=>{const e=await encryptCapsule({ok:true},'a-private-password');await assert.rejects(decryptCapsule(e,'incorrect-password'));await assert.rejects(decryptCapsule({...e,iterations:1},'a-private-password'));await assert.rejects(decryptCapsule({...e,ciphertext:e.ciphertext.slice(0,-4)+'AAAA'},'a-private-password'))});
+test('reject weak short password',async()=>{await assert.rejects(encryptCapsule({},'short'))});
